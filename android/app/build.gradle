@@ -1,3 +1,22 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+
 plugins {
     id "com.android.application"
     id "kotlin-android"
@@ -11,14 +30,23 @@ flutter {
 
 android {
     namespace = "com.example.flutter_access_accelerometer_data_test"
-    compileSdk = 34
+    compileSdk = 36
     
     defaultConfig {
         applicationId = "com.example.flutter_access_accelerometer_data_test"
-        minSdk = 21
-        targetSdk = 34
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        minSdk = 24
+        targetSdk = 36
+        // Use the variables we just defined above
+        versionCode = flutterVersionCode.toInteger()
+        versionName = flutterVersionName
     }
-    // ... the rest of your file
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        // Ensure this matches your Java version
+        jvmTarget = "17" 
+    }
 }
