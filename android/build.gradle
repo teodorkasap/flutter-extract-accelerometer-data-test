@@ -1,4 +1,14 @@
 allprojects {
+    // This part injects the missing 'flutter' variables into every plugin
+    project.ext {
+        flutter = [
+            compileSdkVersion: 34,
+            minSdkVersion: 21,
+            targetSdkVersion: 34,
+            ndkVersion: "25.1.8937393"
+        ]
+    }
+    
     repositories {
         google()
         mavenCentral()
