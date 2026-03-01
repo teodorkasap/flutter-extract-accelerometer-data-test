@@ -1,7 +1,6 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:sensors_plus/sensors_plus.dart';
-import 'accelerometer_screen.dart';
+import 'ui/shot_button.dart'; // Import the new widget
+import 'selection_screen.dart';
 
 void main() {
   runApp(const SensorApp());
@@ -14,12 +13,8 @@ class SensorApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Accelerator',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.deepPurple,
-      ),
-      home: const AccelerometerScreen(),
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
+      home: const SelectionScreen(),
     );
   }
 }

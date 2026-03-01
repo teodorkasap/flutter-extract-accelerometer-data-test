@@ -5,7 +5,8 @@ import 'ui/sensorDataCard.dart';
 
 
 class AccelerometerScreen extends StatefulWidget {
-  const AccelerometerScreen({super.key});
+  final String shotType;
+  const AccelerometerScreen({super.key, required this.shotType});
 
   @override
   State<AccelerometerScreen> createState() => _AccelerometerScreenState();
@@ -51,7 +52,7 @@ class _AccelerometerScreenState extends State<AccelerometerScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Accelerometer Tracker'),
+        title: Text('Recording ${widget.shotType}'),
         centerTitle: true,
       ),
       body: Center(
@@ -60,11 +61,11 @@ class _AccelerometerScreenState extends State<AccelerometerScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SensorDataCard(label: 'X (Horizontal)', value: x, color: Colors.red),
+              SensorDataCard(label: 'X (Horizontal)', value: x.toString(), color: Colors.red),
               const SizedBox(height: 10),
-              SensorDataCard(label: 'Y (Vertical)', value: y, color: Colors.green),
+              SensorDataCard(label: 'Y (Vertical)', value: y.toString(), color: Colors.green),
               const SizedBox(height: 10),
-              SensorDataCard(label: 'Z (Depth)', value: z, color: Colors.blue),
+              SensorDataCard(label: 'Z (Depth)', value: z.toString(), color: Colors.blue),
               const SizedBox(height: 40),
               const Text(
                 'Move your device (or use Emulator Extended Controls) to see the numbers change!',
