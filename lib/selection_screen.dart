@@ -1,4 +1,5 @@
 import 'accelerometer_screen.dart';
+import 'recording_screen.dart';
 import 'ui/shot_button.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class SelectionScreen extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => AccelerometerScreen(shotType: type),
+        builder: (context) => RecordingScreen(shotType: type),
       ),
     );
   }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // A reusable UI component for showing the data
 class SensorDataCard extends StatelessWidget {
   final String label;
-  final double value;
+  final String value;
   final Color color;
 
   const SensorDataCard({
@@ -21,7 +21,7 @@ class SensorDataCard extends StatelessWidget {
         leading: Icon(Icons.speed, color: color),
         title: Text(label),
         trailing: Text(
-          value.toStringAsFixed(3),
+          value,
           style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
