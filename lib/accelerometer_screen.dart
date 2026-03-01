@@ -5,7 +5,8 @@ import 'ui/sensorDataCard.dart';
 
 
 class AccelerometerScreen extends StatefulWidget {
-  const AccelerometerScreen({super.key});
+  final String shotType;
+  const AccelerometerScreen({super.key, required this.shotType});
 
   @override
   State<AccelerometerScreen> createState() => _AccelerometerScreenState();
@@ -51,7 +52,7 @@ class _AccelerometerScreenState extends State<AccelerometerScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Accelerometer Tracker'),
+        title: Text('Recording ${widget.shotType}'),
         centerTitle: true,
       ),
       body: Center(
